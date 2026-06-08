@@ -6,167 +6,157 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <title>내집마련 코칭 - 회원님을 위한 맞춤 자료 (시안 B)</title>
     <style>
+        @font-face { font-family:'GmarketSans'; src:url('./fonts/GmarketSansBold.woff2') format('woff2'); font-weight:700; font-display:swap; }
         :root {
-            --ink: #2A2620;
-            --ink-soft: #6B655C;
-            --ink-faint: #A39C90;
-            --accent: #1E6F5C;
-            --accent-soft: #E7F2EE;
-            --warm: #FBF6EE;
-            --warm-line: #ECE3D5;
-            --card: #FFFFFF;
+            --accent: #FF6B00; --accent-dark: #E25E00; --accent-soft: #FFEFE0;
+            --dark: #1A150F; --text-primary: #2A2620; --text-secondary: #6B6357;
+            --text-tertiary: #A39A8C; --border-color: #EBE3D6; --beige: #F5F0E8;
+            --shadow-md: 0 8px 20px rgba(42,38,32,0.07); --shadow-lg: 0 14px 34px rgba(42,38,32,0.10);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-            background: var(--warm); color: var(--ink); line-height: 1.65;
-            word-break: keep-all; -webkit-font-smoothing: antialiased; font-size: 16px;
-        }
-        .wrap { max-width: 780px; margin: 0 auto; padding: 0 22px; }
+        body { font-family: "Pretendard", -apple-system, system-ui, sans-serif;
+            background: var(--beige); color: var(--text-primary); line-height: 1.6; word-break: keep-all; -webkit-font-smoothing: antialiased; font-size: 16px; }
+        h1, h2, h3, h4, .gm { font-family: "GmarketSans", "Pretendard", sans-serif; }
 
-        .top { display: flex; align-items: center; gap: 14px; padding: 36px 0 24px; }
-        .top img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; box-shadow: 0 3px 10px rgba(42,38,32,.12); }
-        .top .brand { font-size: 15px; font-weight: 700; color: var(--ink-soft); }
+        .container { max-width: 900px; margin: 32px auto; background: white; min-height: calc(100vh - 64px); border-radius: 20px; box-shadow: var(--shadow-lg); overflow: hidden; }
+        .header { background: var(--dark); color: #fff; padding: 26px 40px; display: flex; justify-content: space-between; align-items: center; border-radius: 16px; margin: 20px 20px 0; }
+        .header-branding h1 { font-size: 24px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 4px; color: #fff; }
+        .header-subtitle { font-size: 14px; color: rgba(255,255,255,0.65); font-weight: 400; font-family: "Pretendard"; }
+        .header-logo { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; }
+        .content { padding: 48px 40px; }
+        .intro-section { margin-bottom: 36px; text-align: center; }
+        .intro-text { font-size: 27px; font-weight: 700; line-height: 1.4; letter-spacing: -0.3px; margin-bottom: 10px; }
+        .intro-text .highlight { color: var(--accent); }
+        .intro-subtext { font-size: 16px; color: var(--text-secondary); font-family: "Pretendard"; }
 
-        .hero {
-            background: var(--card); border-radius: 24px; padding: 40px 36px; margin-bottom: 18px;
-            box-shadow: 0 8px 30px rgba(42,38,32,.06); text-align: center;
-        }
-        .hero .eyebrow {
-            display: inline-block; font-size: 13px; color: var(--accent); font-weight: 700;
-            background: var(--accent-soft); padding: 6px 14px; border-radius: 999px; margin-bottom: 18px;
-        }
-        .hero h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.8px; line-height: 1.3; margin-bottom: 10px; }
-        .hero h1 .name { color: var(--accent); }
-        .hero .sub { font-size: 15px; color: var(--ink-soft); margin-bottom: 24px; }
-        .hero .meta { display: inline-flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
-        .hero .chip { background: var(--warm); border-radius: 14px; padding: 12px 20px; text-align: left; }
-        .hero .chip .c-label { font-size: 12px; color: var(--ink-faint); margin-bottom: 2px; }
-        .hero .chip input { border: none; background: transparent; font: inherit; font-weight: 700;
-            color: var(--ink); outline: none; padding: 0; width: 130px; }
+        .info-wrap { background: var(--beige); border: 1px solid var(--border-color); border-radius: 16px; padding: 22px; margin-bottom: 28px; }
+        .info-wrap h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 16px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .info-card { background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; }
+        .info-label { font-size: 12px; color: var(--text-tertiary); font-weight: 600; margin-bottom: 6px; font-family: "Pretendard"; }
+        .info-input { width: 100%; border: none; background: transparent; font-size: 18px; font-weight: 700; color: var(--dark); font-family: "GmarketSans","Pretendard"; outline: none; }
+        .info-input::placeholder { color: #CFC6B8; }
 
-        .perk {
-            background: linear-gradient(135deg, #1E6F5C 0%, #2E8B73 100%); color: #fff;
-            border-radius: 20px; padding: 26px 30px; margin-bottom: 16px;
-            display: flex; align-items: center; justify-content: space-between; gap: 20px;
-        }
-        .perk .p-top { font-size: 13px; opacity: .85; font-weight: 600; margin-bottom: 6px; }
-        .perk .p-big { font-size: 18px; font-weight: 700; }
-        .perk a { white-space: nowrap; background: #fff; color: var(--accent); text-decoration: none;
-            font-size: 15px; font-weight: 700; padding: 13px 22px; border-radius: 999px; transition: transform .2s; }
-        .perk a:hover { transform: translateY(-2px); }
+        .benefit-card { background: linear-gradient(135deg, #FFF4E8 0%, #FFE9D2 100%); border: 1.5px solid #FFD3AD; border-radius: 18px; padding: 28px 30px; display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 28px; }
+        .benefit-info h4 { font-size: 13px; color: var(--accent-dark); font-weight: 700; margin-bottom: 8px; }
+        .benefit-highlight { font-size: 30px; font-weight: 700; color: var(--accent); letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 4px; }
+        .benefit-desc { font-size: 14px; color: #9A6A3A; font-family: "Pretendard"; }
+        .btn-benefit { white-space: nowrap; padding: 15px 26px; background: var(--accent); color: white; text-decoration: none; font-size: 16px; font-weight: 700; border-radius: 999px; transition: all 0.2s; font-family: "Pretendard"; }
+        .btn-benefit:hover { background: var(--accent-dark); transform: translateY(-2px); }
 
-        .note { font-size: 13.5px; color: #8A6D2F; background: #FBF1D9;
-            border-radius: 14px; padding: 14px 18px; margin-bottom: 44px; }
-        .note b { color: #6B5217; }
+        .notice-banner { background: var(--beige); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px 18px; font-size: 13.5px; color: #7A6E5A; margin-bottom: 40px; font-family: "Pretendard"; }
+        .notice-banner b { color: #5A4E3A; }
 
-        .sec-title { font-size: 19px; font-weight: 800; letter-spacing: -0.4px; margin-bottom: 18px; padding-left: 4px; }
+        .section-header { font-size: 20px; font-weight: 700; color: var(--dark); margin-bottom: 22px; display: flex; align-items: center; gap: 10px; }
+        .section-header::before { content: ''; display: block; width: 5px; height: 22px; background: var(--accent); border-radius: 3px; }
 
-        .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 40px; }
-        .card {
-            text-decoration: none; color: inherit; background: var(--card);
-            border-radius: 20px; padding: 26px; display: flex; flex-direction: column;
-            box-shadow: 0 4px 16px rgba(42,38,32,.05); transition: transform .2s, box-shadow .2s;
-        }
-        .card:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(42,38,32,.1); }
-        .card .ico { width: 48px; height: 48px; border-radius: 14px; background: var(--accent-soft);
-            display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
-        .card .ico svg { width: 24px; height: 24px; fill: var(--accent); }
-        .card h3 { font-size: 17px; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 7px; }
-        .card p { font-size: 14px; color: var(--ink-soft); line-height: 1.55; flex-grow: 1; }
-        .card .go { font-size: 14px; font-weight: 700; color: var(--accent); margin-top: 16px; }
-        .card .go::after { content: " \2192"; }
+        .resource-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 36px; }
+        .resource-card { background: white; border: 1px solid var(--border-color); border-radius: 16px; padding: 26px; text-decoration: none; display: flex; flex-direction: column; transition: all 0.25s ease; box-shadow: 0 3px 10px rgba(42,38,32,0.03); }
+        .resource-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .resource-card.youtube-card .resource-icon-box { background: #FFF1F1; }
+        .resource-card.youtube-card .resource-icon-box svg { fill: #C4302B; }
+        .resource-card.youtube-card .resource-action { color: #C4302B; }
+        .resource-icon-box { width: 50px; height: 50px; background: var(--accent-soft); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; transition: all 0.25s; }
+        .resource-card:hover .resource-icon-box { background: var(--accent); }
+        .resource-icon-box svg { width: 25px; height: 25px; fill: var(--accent); transition: fill 0.25s; }
+        .resource-card:hover .resource-icon-box svg { fill: white; }
+        .resource-title { font-size: 18px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.2px; }
+        .resource-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 18px; flex-grow: 1; font-family: "Pretendard"; }
+        .resource-action { font-size: 14px; font-weight: 600; color: var(--accent); display: flex; align-items: center; justify-content: flex-end; font-family: "Pretendard"; }
+        .resource-action::after { content: "\2192"; margin-left: 6px; transition: margin 0.25s; }
+        .resource-card:hover .resource-action::after { margin-left: 10px; }
 
-        .yt { text-align: center; margin-bottom: 36px; }
-        .yt a { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700;
-            color: #C4302B; text-decoration: none; border: 1.5px solid #C4302B; padding: 9px 20px;
-            border-radius: 999px; transition: all .2s; }
-        .yt a svg { width: 18px; height: 18px; fill: currentColor; }
-        .yt a:hover { background: #C4302B; color: #fff; }
+        .yt-row { text-align: right; margin: -8px 0 32px; }
+        .yt-row a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border: 1.5px solid #C4302B; border-radius: 999px; color: #C4302B; font-size: 14px; font-weight: 600; text-decoration: none; transition: all .2s; font-family: "Pretendard"; }
+        .yt-row a svg { width: 18px; height: 18px; fill: currentColor; }
+        .yt-row a:hover { background: #C4302B; color: #fff; }
 
-        .foot { padding: 24px 0 44px; text-align: center; }
-        .foot p { font-size: 12.5px; color: var(--ink-faint); }
+        .footer { background: var(--beige); padding: 24px 30px; text-align: center; border-top: 1px solid var(--border-color); }
+        .footer p { font-size: 12.5px; color: var(--text-tertiary); margin-bottom: 4px; font-family: "Pretendard"; }
 
-        @media (max-width: 640px) {
-            .hero { padding: 32px 22px; }
-            .hero h1 { font-size: 25px; }
-            .perk { flex-direction: column; align-items: flex-start; }
-            .perk a { width: 100%; text-align: center; }
-            .cards { grid-template-columns: 1fr; }
-            .hero .chip input { width: 110px; }
+        @media (max-width: 768px) {
+            .container { margin: 0; border-radius: 0; box-shadow: none; }
+            .header { padding: 16px; margin: 12px 12px 0; }
+            .header-branding h1 { font-size: 18px; } .header-logo { width: 64px; height: 64px; }
+            .content { padding: 32px 20px; } .intro-text { font-size: 23px; }
+            .info-grid { grid-template-columns: 1fr; }
+            .benefit-card { flex-direction: column; align-items: flex-start; } .btn-benefit { width: 100%; text-align: center; }
+            .resource-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="wrap">
-        <div class="top">
-            <img src="channel-logo.png" alt="우리동네재테크">
-            <div class="brand" id="headerSubtitle">우리동네재테크 · 내집마련 코칭</div>
+    <div class="container">
+        <div class="header">
+            <div class="header-branding">
+                <h1 id="headerTitle">내집마련 코칭</h1>
+                <div class="header-subtitle" id="headerSubtitle">회원님 전용 맞춤 자료 페이지</div>
+            </div>
+            <img class="header-logo" src="channel-logo.png" alt="우리동네재테크">
         </div>
+        <div class="content">
+            <div class="intro-section">
+                <h2 class="intro-text">내집마련 코칭 <span class="highlight" id="introName">리포트</span></h2>
+                <p class="intro-subtext">회원님을 위한 맞춤형 내집마련 플랜</p>
+            </div>
 
-        <div class="hero">
-            <div class="eyebrow">회원 전용 맞춤 자료</div>
-            <h1><span class="name" id="introName">회원님</span>의 내집마련 코칭 리포트</h1>
-            <div class="sub">상담 내용을 바탕으로 정리한 핵심 자료를 모았어요.</div>
-            <div class="meta">
-                <div class="chip">
-                    <div class="c-label">회원명</div>
-                    <input id="clientName" placeholder="회원님">
-                </div>
-                <div class="chip">
-                    <div class="c-label">상담 일자</div>
-                    <input type="date" id="consultDate" readonly>
+            <div class="info-wrap">
+                <h3>상담 내용을 바탕으로 정리한 핵심 자료입니다.</h3>
+                <div class="info-grid">
+                    <div class="info-card"><div class="info-label">회원명</div><input type="text" class="info-input" id="clientName" placeholder="회원명"></div>
+                    <div class="info-card"><div class="info-label">상담 일자</div><input type="date" class="info-input" id="consultDate" readonly></div>
                 </div>
             </div>
-        </div>
 
-        <div class="perk">
-            <div>
-                <div class="p-top">질의응답 지원 기간</div>
-                <div class="p-big">기본 3개월 · 후기 작성 시 6개월로 연장</div>
+            <div class="benefit-card">
+                <div class="benefit-info">
+                    <h4>질의응답(Q&A) 지원 기간</h4>
+                    <div class="benefit-highlight">3개월</div>
+                    <div class="benefit-desc">후기 작성 시 6개월로 연장</div>
+                </div>
+                <a href="https://docs.google.com/forms/d/17iXvUhFQbogWpumqN3cmDZCTPz0Af1pKU9sv3j5rfjM/viewform?edit_requested=true" class="btn-benefit" target="_blank">후기 작성하고 연장하기</a>
             </div>
-            <a href="https://docs.google.com/forms/d/17iXvUhFQbogWpumqN3cmDZCTPz0Af1pKU9sv3j5rfjM/viewform?edit_requested=true" target="_blank">후기 작성하기</a>
+
+            <div class="notice-banner"><b>안내</b> · 개인정보 보호를 위해 이 페이지는 1개월 후 만료됩니다. 필요한 자료는 미리 받아두세요.</div>
+
+            <h3 class="section-header">제공 자료</h3>
+            <div class="resource-grid">
+                <a href="https://docs.google.com/spreadsheets/d/1B419dWEt3iooHRjZE9e8a7nh0iJaFLfGwqMFM3PsOsA/edit?gid=1463860195#gid=1463860195" class="resource-card" target="_blank">
+                    <div class="resource-icon-box"><svg viewBox="0 0 24 24"><path d="M19 3H5C3.9 3 3 3.9 3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-1.3-1.54-4.5 6h17L13.96 6.29z"/></svg></div>
+                    <h4 class="resource-title">자산 관리 & 매수 플래너</h4>
+                    <p class="resource-desc">자산 시뮬레이션부터 지역·단지 선정, 부동산 방문, 실제 매수까지 진행하는 실행 시트입니다.</p>
+                    <div class="resource-action">자료 열기</div>
+                </a>
+                <a class="resource-card" id="calcBtn" href="prep.html" target="_blank">
+                    <div class="resource-icon-box"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4 14h-2v-2h2v2zm0-4h-2V9h2v4zm-4 4H9v-2h2v2zm0-4H9V9h2v4zm-4 4H5v-2h2v2zm0-4H5V9h2v4zm8 4h-2v-2h2v2z"/></svg></div>
+                    <h4 class="resource-title">재무 계산기</h4>
+                    <p class="resource-desc">자산과 소득을 입력하면 매수 가능 금액과 월 상환액, 갈아타기 가능 여부를 바로 확인할 수 있습니다.</p>
+                    <div class="resource-action">계산기 열기</div>
+                </a>
+                <a class="resource-card" id="pptBtn" href="#" target="_blank">
+                    <div class="resource-icon-box"><svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></div>
+                    <h4 class="resource-title">상담 리포트</h4>
+                    <p class="resource-desc">회원님 개인 상황을 바탕으로 상담 시 함께 본 자료입니다.</p>
+                    <div class="resource-action">자료 열기</div>
+                </a>
+                <a class="resource-card" id="docBtn" href="#" target="_blank">
+                    <div class="resource-icon-box"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-8-6z"/></svg></div>
+                    <h4 class="resource-title">솔루션 실행 요약본</h4>
+                    <p class="resource-desc">상담 핵심 인사이트와 실천 과제를 한 장에 압축한 요약 문서입니다.</p>
+                    <div class="resource-action">자료 열기</div>
+                </a>
+            </div>
+
+            <div class="yt-row">
+                <a href="https://www.youtube.com/@%EC%9A%B0%EB%A6%AC%EB%8F%99%EB%84%A4%EC%9E%AC%ED%85%8C%ED%81%AC" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    우리동네재테크 유튜브 →
+                </a>
+            </div>
         </div>
-
-        <div class="note"><b>안내</b> · 개인정보 보호를 위해 이 페이지는 1개월 후 만료됩니다. 필요한 자료는 미리 받아두세요.</div>
-
-        <div class="sec-title">제공 자료</div>
-        <div class="cards">
-            <a href="https://docs.google.com/spreadsheets/d/1B419dWEt3iooHRjZE9e8a7nh0iJaFLfGwqMFM3PsOsA/edit?gid=1463860195#gid=1463860195" class="card" target="_blank">
-                <div class="ico"><svg viewBox="0 0 24 24"><path d="M19 3H5C3.9 3 3 3.9 3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-1.3-1.54-4.5 6h17L13.96 6.29z"/></svg></div>
-                <h3>자산 관리 & 매수 플래너</h3>
-                <p>자산 시뮬레이션부터 지역·단지 선정, 부동산 방문, 실제 매수까지 진행하는 실행 시트입니다.</p>
-                <div class="go">자료 열기</div>
-            </a>
-            <a class="card" id="calcBtn" href="prep.html" target="_blank">
-                <div class="ico"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4 14h-2v-2h2v2zm0-4h-2V9h2v4zm-4 4H9v-2h2v2zm0-4H9V9h2v4zm-4 4H5v-2h2v2zm0-4H5V9h2v4zm8 4h-2v-2h2v2z"/></svg></div>
-                <h3>재무 계산기</h3>
-                <p>자산과 소득을 입력하면 매수 가능 금액과 월 상환액, 갈아타기 가능 여부를 바로 확인할 수 있습니다.</p>
-                <div class="go">계산기 열기</div>
-            </a>
-            <a class="card" id="pptBtn" href="#" target="_blank">
-                <div class="ico"><svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></div>
-                <h3>상담 리포트</h3>
-                <p>회원님 개인 상황을 바탕으로 상담 시 함께 본 자료입니다.</p>
-                <div class="go">자료 열기</div>
-            </a>
-            <a class="card" id="docBtn" href="#" target="_blank">
-                <div class="ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-8-6z"/></svg></div>
-                <h3>솔루션 실행 요약본</h3>
-                <p>상담 핵심 인사이트와 실천 과제를 한 장에 압축한 요약 문서입니다.</p>
-                <div class="go">자료 열기</div>
-            </a>
-        </div>
-
-        <div class="yt">
-            <a href="https://www.youtube.com/@%EC%9A%B0%EB%A6%AC%EB%8F%99%EB%84%A4%EC%9E%AC%ED%85%8C%ED%81%AC" target="_blank">
-                <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                우리동네재테크 유튜브
-            </a>
-        </div>
-
-        <div class="foot">
-            <p>본 자료의 저작권은 우리동네재테크에 있습니다. &copy; 2026 우리동네재테크</p>
+        <div class="footer">
+            <p>본 자료의 저작권은 우리동네재테크에 있습니다.</p>
+            <p>&copy; 2026 우리동네재테크. All Rights Reserved.</p>
         </div>
     </div>
 
@@ -179,30 +169,19 @@
         function updateIntroName(name) {
             const introName = document.getElementById('introName');
             const headerSubtitle = document.getElementById('headerSubtitle');
-            if (name && name.trim()) {
-                introName.textContent = name + '님';
-                headerSubtitle.textContent = '우리동네재테크 · ' + name + '님 전용 자료';
-            } else {
-                introName.textContent = '회원님';
-                headerSubtitle.textContent = '우리동네재테크 · 내집마련 코칭';
-            }
+            if (name && name.trim()) { introName.textContent = name + '님'; headerSubtitle.textContent = name + '님 전용 맞춤 자료 페이지'; }
+            else { introName.textContent = '리포트'; headerSubtitle.textContent = '회원님 전용 맞춤 자료 페이지'; }
         }
         window.addEventListener('DOMContentLoaded', function() {
             const clientNameInput = document.getElementById('clientName');
-            const urlName = getUrlParameter('name');
-            const urlDate = getUrlParameter('date');
+            const urlName = getUrlParameter('name'); const urlDate = getUrlParameter('date');
             if (urlName) { clientNameInput.value = urlName; updateIntroName(urlName); }
-            if (urlDate) {
-                document.getElementById('consultDate').value = urlDate;
-            } else {
-                const t = new Date();
-                document.getElementById('consultDate').value = t.getFullYear() + '-' + String(t.getMonth()+1).padStart(2,'0') + '-' + String(t.getDate()).padStart(2,'0');
-            }
+            if (urlDate) { document.getElementById('consultDate').value = urlDate; }
+            else { const t = new Date(); document.getElementById('consultDate').value = t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0'); }
             const calcParams = ['name','cash','income','saving','target','my_apt','goal_apt'];
             const calcQuery = calcParams.map(function(p){ var v=getUrlParameter(p); return v ? p+'='+encodeURIComponent(v) : ''; }).filter(Boolean).join('&');
             if (calcQuery) document.getElementById('calcBtn').href = 'prep.html?' + calcQuery;
-            const pptUrl = getUrlParameter('ppt');
-            const docUrl = getUrlParameter('doc');
+            const pptUrl = getUrlParameter('ppt'); const docUrl = getUrlParameter('doc');
             if (pptUrl) document.getElementById('pptBtn').href = pptUrl;
             if (docUrl) document.getElementById('docBtn').href = docUrl;
             clientNameInput.addEventListener('input', function(e) { updateIntroName(e.target.value); });
