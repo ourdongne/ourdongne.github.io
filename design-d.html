@@ -7,7 +7,7 @@
     <title>내집마련 코칭 - 회원님을 위한 맞춤 자료 (시안 D)</title>
     <style>
         @font-face { font-family:'GmarketSans'; src:url('./fonts/GmarketSansBold.woff2') format('woff2'); font-weight:700; font-display:swap; }
-        :root { --accent:#FF6B00; --accent-dark:#E25E00; --ink:#161310; --ink-soft:#6A6258; --ink-faint:#AEA699; --line:#E7E1D6; --bg:#FBFAF8; }
+        :root { --accent:#FF6B00; --accent-dark:#E25E00; --accent-soft:#FFF1E4; --ink:#15110C; --ink-soft:#574F44; --ink-faint:#938A7C; --line:#E7E1D6; --bg:#FBFAF8; }
         * { margin:0; padding:0; box-sizing:border-box; }
         body { font-family:"Pretendard",-apple-system,system-ui,sans-serif; background:var(--bg); color:var(--ink); line-height:1.65; word-break:keep-all; -webkit-font-smoothing:antialiased; font-size:16px; }
         .gm { font-family:"GmarketSans","Pretendard",sans-serif; }
@@ -15,35 +15,39 @@
         .wrap { max-width:780px; margin:0 auto; padding:0 28px; }
 
         .topbar { display:flex; align-items:center; gap:12px; padding:34px 0 0; }
-        .topbar img { width:38px; height:38px; border-radius:50%; object-fit:cover; }
+        .topbar img { width:40px; height:40px; border-radius:50%; object-fit:cover; }
         .topbar .b { font-size:14px; font-weight:700; color:var(--ink-soft); font-family:"GmarketSans","Pretendard"; }
 
-        .hero { padding:54px 0 38px; }
-        .eyebrow { font-size:13px; font-weight:700; letter-spacing:1.5px; color:var(--accent); margin-bottom:20px; }
-        .hero h1 { font-family:"GmarketSans","Pretendard"; font-size:46px; line-height:1.18; letter-spacing:-1.2px; font-weight:700; margin-bottom:22px; }
+        .hero { padding:50px 0 34px; }
+        .eyebrow { font-size:13px; font-weight:700; letter-spacing:1.5px; color:var(--accent); margin-bottom:18px; }
+        .hero h1 { font-family:"GmarketSans","Pretendard"; font-size:44px; line-height:1.2; letter-spacing:-1.2px; font-weight:700; margin-bottom:24px; }
         .hero h1 .name { color:var(--accent); }
-        .meta { font-size:14px; color:var(--ink-soft); display:flex; align-items:center; gap:8px; }
-        .meta input { border:none; background:transparent; font:inherit; color:var(--ink-soft); width:115px; padding:0; outline:none; }
-        .meta .sep { color:var(--ink-faint); }
+        .meta { display:flex; gap:10px; flex-wrap:wrap; }
+        .meta .chip { display:inline-flex; align-items:center; gap:7px; background:#fff; border:1px solid var(--line); border-radius:10px; padding:9px 14px; font-size:14px; font-weight:600; color:var(--ink); }
+        .meta .chip svg { width:16px; height:16px; fill:none; stroke:var(--accent); stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+        .meta .chip .lbl { color:var(--ink-faint); font-weight:600; }
+        .meta .chip input { border:none; background:transparent; font:inherit; color:var(--ink); width:108px; padding:0; outline:none; }
 
-        .qa { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
-            border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:22px 0; margin-bottom:56px; }
-        .qa .q-text { font-size:16px; font-weight:600; }
-        .qa .q-text b { color:var(--accent); font-family:"GmarketSans","Pretendard"; }
-        .qa .q-text span { color:var(--ink-soft); font-weight:400; font-size:14.5px; }
-        .qa a { font-size:14.5px; font-weight:700; color:#fff; background:var(--accent); padding:11px 20px; border-radius:999px; text-decoration:none; white-space:nowrap; transition:background .2s; }
-        .qa a:hover { background:var(--accent-dark); }
+        .qa { display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;
+            background:var(--accent-soft); border:1px solid #FFD9BC; border-radius:16px; padding:22px 26px; margin:32px 0 52px; }
+        .qa .q-text { font-size:16px; font-weight:600; color:var(--ink); }
+        .qa .q-text b { color:var(--accent-dark); font-family:"GmarketSans","Pretendard"; }
+        .qa .q-text span { display:block; color:var(--ink-soft); font-weight:400; font-size:13.5px; margin-top:3px; }
+        .qa a { font-size:15px; font-weight:700; color:#fff; background:var(--accent); padding:13px 24px; border-radius:10px; text-decoration:none; white-space:nowrap; transition:all .2s; box-shadow:0 4px 12px rgba(255,107,0,.25); }
+        .qa a:hover { background:var(--accent-dark); transform:translateY(-2px); }
 
-        .sec-label { font-size:13px; font-weight:700; letter-spacing:1px; color:var(--ink-faint); margin-bottom:8px; }
+        .sec-label { font-size:13px; font-weight:700; letter-spacing:1px; color:var(--ink-faint); margin-bottom:10px; }
 
-        .list { margin-bottom:48px; }
-        .row { display:flex; align-items:center; gap:24px; padding:26px 8px; border-bottom:1px solid var(--line); text-decoration:none; color:inherit; transition:padding .2s, background .2s; }
+        .list { margin-bottom:46px; }
+        .row { display:flex; align-items:center; gap:20px; padding:22px 8px; border-bottom:1px solid var(--line); text-decoration:none; color:inherit; transition:padding .2s, background .2s; }
         .row:first-child { border-top:1px solid var(--line); }
-        .row:hover { background:#F4EFE7; padding-left:16px; }
-        .row .num { font-family:"GmarketSans","Pretendard"; font-size:26px; color:var(--ink-faint); width:42px; flex-shrink:0; transition:color .2s; }
-        .row:hover .num { color:var(--accent); }
+        .row:hover { background:#F5EFE6; padding-left:14px; }
+        .row .ico { width:50px; height:50px; border-radius:13px; background:var(--accent-soft); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:background .2s; }
+        .row:hover .ico { background:var(--accent); }
+        .row .ico svg { width:25px; height:25px; fill:none; stroke:var(--accent); stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; transition:stroke .2s; }
+        .row:hover .ico svg { stroke:#fff; }
         .row .body { flex-grow:1; }
-        .row .body h3 { font-family:"GmarketSans","Pretendard"; font-size:19px; font-weight:700; letter-spacing:-0.3px; margin-bottom:5px; }
+        .row .body h3 { font-family:"GmarketSans","Pretendard"; font-size:18px; font-weight:700; letter-spacing:-0.3px; margin-bottom:5px; }
         .row .body p { font-size:14px; color:var(--ink-soft); line-height:1.5; }
         .row .arr { font-size:22px; color:var(--ink-faint); flex-shrink:0; transition:transform .2s, color .2s; }
         .row:hover .arr { color:var(--accent); transform:translateX(4px); }
@@ -57,9 +61,9 @@
         .foot a svg { width:17px; height:17px; fill:currentColor; }
 
         @media (max-width:640px) {
-            .hero { padding:40px 0 30px; } .hero h1 { font-size:33px; }
+            .hero { padding:38px 0 28px; } .hero h1 { font-size:32px; }
             .qa { flex-direction:column; align-items:flex-start; } .qa a { width:100%; text-align:center; }
-            .row { gap:16px; padding:22px 4px; } .row .num { font-size:21px; width:32px; }
+            .row { gap:14px; padding:18px 4px; } .row .ico { width:44px; height:44px; }
         }
     </style>
 </head>
@@ -74,36 +78,36 @@
             <div class="eyebrow">회원 전용 맞춤 리포트</div>
             <h1><span class="name" id="introName">회원님</span>의<br>내집마련 코칭 리포트</h1>
             <div class="meta">
-                상담일 <input type="date" id="consultDate" readonly>
-                <span class="sep">·</span> 상담 내용을 바탕으로 정리했어요
+                <span class="chip"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span class="lbl">상담일</span><input type="date" id="consultDate" readonly></span>
+                <span class="chip"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>상담 내용 기반 맞춤 정리</span>
             </div>
             <input type="text" id="clientName" class="vh" placeholder="회원명" aria-hidden="true">
         </div>
 
         <div class="qa">
-            <div class="q-text">질의응답 지원 <b>기본 3개월</b> <span>· 후기 작성 시 6개월로 연장</span></div>
-            <a href="https://docs.google.com/forms/d/17iXvUhFQbogWpumqN3cmDZCTPz0Af1pKU9sv3j5rfjM/viewform?edit_requested=true" target="_blank">후기 작성하고 연장</a>
+            <div class="q-text">질의응답 지원 <b>기본 3개월</b><span>후기를 작성하시면 6개월로 연장해 드려요</span></div>
+            <a href="https://docs.google.com/forms/d/17iXvUhFQbogWpumqN3cmDZCTPz0Af1pKU9sv3j5rfjM/viewform?edit_requested=true" target="_blank">후기 작성하고 연장 →</a>
         </div>
 
         <div class="sec-label">제공 자료</div>
         <div class="list">
             <a class="row" href="https://docs.google.com/spreadsheets/d/1B419dWEt3iooHRjZE9e8a7nh0iJaFLfGwqMFM3PsOsA/edit?gid=1463860195#gid=1463860195" target="_blank">
-                <div class="num gm">01</div>
+                <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></div>
                 <div class="body"><h3>자산 관리 &amp; 매수 플래너</h3><p>자산 시뮬레이션부터 지역·단지 선정, 부동산 방문, 실제 매수까지 진행하는 실행 시트</p></div>
                 <div class="arr">&rarr;</div>
             </a>
             <a class="row" id="calcBtn" href="prep.html" target="_blank">
-                <div class="num gm">02</div>
+                <div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 11h2M16 11h0M8 15h2M16 15v4M8 19h2"/></svg></div>
                 <div class="body"><h3>재무 계산기</h3><p>자산·소득 입력 시 매수 가능 금액, 월 상환액, 갈아타기 가능 여부를 바로 확인</p></div>
                 <div class="arr">&rarr;</div>
             </a>
             <a class="row" id="pptBtn" href="#" target="_blank">
-                <div class="num gm">03</div>
+                <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17v4M8 21h8M7 12l3-3 2 2 4-4"/></svg></div>
                 <div class="body"><h3>상담 리포트</h3><p>회원님 개인 상황을 바탕으로 상담 시 함께 본 자료</p></div>
                 <div class="arr">&rarr;</div>
             </a>
             <a class="row" id="docBtn" href="#" target="_blank">
-                <div class="num gm">04</div>
+                <div class="ico"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></div>
                 <div class="body"><h3>솔루션 실행 요약본</h3><p>상담 핵심 인사이트와 실천 과제를 한 장에 압축한 요약 문서</p></div>
                 <div class="arr">&rarr;</div>
             </a>
