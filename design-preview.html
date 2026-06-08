@@ -4,56 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <title>회원 페이지 — 주황 양 비교</title>
+    <title>회원 페이지 — 확정 후보</title>
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
         body { font-family:"Pretendard",-apple-system,system-ui,sans-serif; background:#2A2F36; color:#E8EBEF; -webkit-font-smoothing:antialiased; }
         .pagebar { background:#1B1F24; padding:18px 24px; text-align:center; border-bottom:1px solid #353B43; position:sticky; top:0; z-index:10; }
-        .pagebar h1 { font-size:17px; font-weight:700; letter-spacing:-0.3px; }
+        .pagebar h1 { font-size:17px; font-weight:700; }
         .pagebar p { font-size:13px; color:#98A1AC; margin-top:4px; }
-        .nav { display:flex; gap:8px; justify-content:center; margin-top:12px; flex-wrap:wrap; }
-        .nav a { font-size:13px; font-weight:600; color:#cfd5dc; text-decoration:none; background:#2A2F36; border:1px solid #3C434C; padding:7px 16px; border-radius:999px; }
-        .nav a:hover { background:#FF6B00; border-color:#FF6B00; color:#fff; }
-        .block { max-width:920px; margin:0 auto; padding:34px 20px 12px; }
-        .label { display:flex; align-items:baseline; gap:12px; margin-bottom:16px; flex-wrap:wrap; }
-        .label .tag { font-size:15px; font-weight:800; color:#fff; background:#FF6B00; padding:7px 14px; border-radius:10px; }
-        .label .t-name { font-size:18px; font-weight:800; }
-        .label .t-desc { font-size:14px; color:#98A1AC; }
-        .label .open { margin-left:auto; font-size:13px; font-weight:600; color:#FF8C3A; text-decoration:none; }
+        .block { max-width:920px; margin:0 auto; padding:30px 20px; }
         .frame-shell { background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,.4); border:1px solid #3C434C; }
         iframe { width:100%; border:0; display:block; }
-        .endpad { height:60px; }
     </style>
 </head>
 <body>
     <div class="pagebar">
-        <h1>회원 페이지 — 주황 양 비교</h1>
-        <p>위 = 주황 많음 / 아래 = 주황 절제 (이름·후기버튼·숫자만 주황). 그 외 수정사항은 둘 다 동일</p>
-        <div class="nav">
-            <a href="#full">주황 많음</a>
-            <a href="#calm">주황 절제 (추천)</a>
-        </div>
+        <h1>회원 페이지 — 확정 후보 (주황 절제)</h1>
+        <p>색 변경·후기 문구/밑줄·유튜브 키움+선명 반영. 샘플 회원 화면입니다.</p>
     </div>
-
-    <div class="block" id="full">
-        <div class="label">
-            <div class="tag">A</div>
-            <div><div class="t-name">주황 많음 (현재)</div><div class="t-desc">자료 아이콘·만료 안내까지 주황</div></div>
-            <a class="open" href="design-d1.html?name=김우재&date=2026-06-08&cash=18000&income=7700&saving=2400&target=60000" target="_blank">크게 보기 ↗</a>
-        </div>
-        <div class="frame-shell"><iframe data-src="design-d1.html?name=김우재&date=2026-06-08&cash=18000&income=7700&saving=2400&target=60000"></iframe></div>
-    </div>
-
-    <div class="block" id="calm">
-        <div class="label">
-            <div class="tag">B</div>
-            <div><div class="t-name">주황 절제 (추천)</div><div class="t-desc">자료 아이콘·만료 안내는 회색, 주황은 이름·후기버튼·숫자만</div></div>
-            <a class="open" href="design-d1b.html?name=김우재&date=2026-06-08&cash=18000&income=7700&saving=2400&target=60000" target="_blank">크게 보기 ↗</a>
-        </div>
+    <div class="block">
         <div class="frame-shell"><iframe data-src="design-d1b.html?name=김우재&date=2026-06-08&cash=18000&income=7700&saving=2400&target=60000"></iframe></div>
     </div>
-
-    <div class="endpad"></div>
     <script>
         function fitFrame(f) {
             try { var h = f.contentWindow.document.documentElement.scrollHeight; if (h > 0) f.style.height = h + 'px'; }
