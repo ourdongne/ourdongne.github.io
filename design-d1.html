@@ -62,10 +62,11 @@
         .notice svg { width:17px; height:17px; flex-shrink:0; margin-top:2px; fill:none; stroke:var(--accent); stroke-width:1.8; }
         .notice b { color:var(--accent-dark); font-weight:700; text-decoration:underline; text-underline-offset:2px; }
 
-        .foot { padding:14px 0 36px; display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
-        .foot p { font-size:12.5px; color:var(--ink-faint); }
-        .foot a { display:inline-flex; align-items:center; gap:7px; font-size:16px; font-weight:700; color:#FF0000; text-decoration:none; }
-        .foot a svg { width:25px; height:25px; fill:currentColor; }
+        .foot { padding:16px 0 36px; display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+        .foot p { font-size:12.5px; color:var(--ink-faint); line-height:1.7; }
+        .foot a { display:inline-flex; align-items:center; gap:6px; font-size:18px; font-weight:800; color:#15110C; text-decoration:none; letter-spacing:-0.4px; }
+        .foot a .ytlabel { font-family:"GmarketSans","Pretendard"; }
+        .foot a svg { width:26px; height:26px; fill:#FF0000; }
 
         @media (max-width:640px) {
             .hero { flex-direction:column-reverse; align-items:flex-start; gap:20px; padding:36px 0 28px; }
@@ -134,8 +135,9 @@
         <div class="notice"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg><span>개인정보 보호를 위해 이 페이지는 <b id="pageExpiry">—</b> 만료됩니다. 필요한 자료는 미리 받아두세요.</span></div>
 
         <div class="foot">
-            <p>&copy; 2026 우리동네재테크 본 자료의 저작권은 우리동네재테크에 있습니다.</p>
+            <p>&copy; 2026 우리동네재테크<br>본 자료의 저작권은 우리동네재테크에 있습니다.</p>
             <a href="https://www.youtube.com/@%EC%9A%B0%EB%A6%AC%EB%8F%99%EB%84%A4%EC%9E%AC%ED%85%8C%ED%81%AC" target="_blank">
+                <span class="ytlabel">YouTube</span>
                 <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
         </div>
