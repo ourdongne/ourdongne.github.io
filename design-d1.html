@@ -38,6 +38,9 @@
         .qa-sub { font-size:13.5px; color:var(--ink-soft); margin-top:2px; }
         .qa-btn { font-size:15px; font-weight:700; color:#fff; background:var(--accent); padding:13px 24px; border-radius:10px; text-decoration:none; white-space:nowrap; transition:all .2s; box-shadow:0 4px 12px rgba(255,107,0,.25); }
         .qa-btn:hover { background:var(--accent-dark); transform:translateY(-2px); }
+        .qa-right { display:flex; flex-direction:column; align-items:flex-end; gap:7px; }
+        .qa-deadline { font-size:12.5px; color:var(--ink-faint); font-weight:600; }
+        .qa-deadline b { color:var(--accent-dark); }
 
         .sec-label { font-size:13px; font-weight:700; letter-spacing:1px; color:var(--ink-faint); margin-bottom:10px; }
         .list { margin-bottom:40px; }
@@ -54,9 +57,9 @@
         .row .arr { font-size:22px; color:var(--ink-faint); flex-shrink:0; transition:transform .2s, color .2s; }
         .row:hover .arr { color:var(--accent); transform:translateX(4px); }
 
-        .notice { display:flex; align-items:flex-start; gap:9px; font-size:13px; color:var(--ink-soft); margin-bottom:40px; }
-        .notice svg { width:16px; height:16px; flex-shrink:0; margin-top:2px; fill:none; stroke:var(--ink-faint); stroke-width:1.8; }
-        .notice b { color:var(--ink); font-weight:700; }
+        .notice { display:flex; align-items:flex-start; gap:10px; font-size:13.5px; color:var(--ink-soft); background:#FFF6EE; border:1px solid #FBE0C8; border-radius:12px; padding:14px 16px; margin-bottom:40px; }
+        .notice svg { width:17px; height:17px; flex-shrink:0; margin-top:2px; fill:none; stroke:var(--accent); stroke-width:1.8; }
+        .notice b { color:var(--accent-dark); font-weight:700; text-decoration:underline; text-underline-offset:2px; }
 
         .foot { border-top:1px solid var(--line); padding:26px 0 50px; display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
         .foot p { font-size:12.5px; color:var(--ink-faint); }
@@ -67,7 +70,7 @@
             .hero { flex-direction:column-reverse; align-items:flex-start; gap:20px; padding:36px 0 28px; }
             .hero-badge img { width:72px; height:72px; } .hero-badge .bn { display:none; }
             .hero h1 { font-size:31px; }
-            .qa { flex-direction:column; align-items:flex-start; } .qa-btn { width:100%; text-align:center; }
+            .qa { flex-direction:column; align-items:flex-start; } .qa-right { width:100%; align-items:stretch; } .qa-btn { width:100%; text-align:center; } .qa-deadline { text-align:center; }
             .row { gap:14px; padding:18px 4px; } .row .ico { width:44px; height:44px; }
         }
     </style>
@@ -95,10 +98,13 @@
                 <div class="qa-ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 17 0z"/></svg></div>
                 <div>
                     <div class="qa-title">질의응답 <b>3개월</b> 무료 지원</div>
-                    <div class="qa-sub">후기를 남기면 6개월로 연장돼요</div>
+                    <div class="qa-sub">후기를 남기면 6개월로 연장됩니다</div>
                 </div>
             </div>
-            <a class="qa-btn" href="https://docs.google.com/forms/d/17iXvUhFQbogWpumqN3cmDZCTPz0Af1pKU9sv3j5rfjM/viewform?edit_requested=true" target="_blank">후기 작성하기 →</a>
+            <div class="qa-right">
+                <a class="qa-btn" href="https://docs.google.com/forms/d/17iXvUhFQbogWpumqN3cmDZCTPz0Af1pKU9sv3j5rfjM/viewform?edit_requested=true" target="_blank">후기 작성하기 →</a>
+                <div class="qa-deadline">후기 마감 <b id="reviewDeadline">—</b></div>
+            </div>
         </div>
 
         <div class="sec-label">제공 자료</div>
@@ -152,6 +158,14 @@
             if (urlName) { clientNameInput.value = urlName; updateIntroName(urlName); }
             if (urlDate) { document.getElementById('consultDate').value = urlDate; }
             else { const t = new Date(); document.getElementById('consultDate').value = t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0'); }
+            // 후기 작성 마감 = 상담일 + 2일 (자동 계산)
+            var baseStr = document.getElementById('consultDate').value;
+            var base = new Date(baseStr + 'T00:00:00');
+            if (!isNaN(base.getTime())) {
+                base.setDate(base.getDate() + 2);
+                var dlEl = document.getElementById('reviewDeadline');
+                if (dlEl) dlEl.textContent = base.getFullYear()+'.'+String(base.getMonth()+1).padStart(2,'0')+'.'+String(base.getDate()).padStart(2,'0');
+            }
             const calcParams = ['name','cash','income','saving','target','my_apt','goal_apt'];
             const calcQuery = calcParams.map(function(p){ var v=getUrlParameter(p); return v ? p+'='+encodeURIComponent(v) : ''; }).filter(Boolean).join('&');
             if (calcQuery) document.getElementById('calcBtn').href = 'prep.html?' + calcQuery;

@@ -4,81 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <title>회원 페이지 시안 — D 디벨롭 3종</title>
+    <title>회원 페이지 시안 — D1 (확정안)</title>
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
         body { font-family:"Pretendard",-apple-system,system-ui,sans-serif; background:#2A2F36; color:#E8EBEF; -webkit-font-smoothing:antialiased; }
         .pagebar { background:#1B1F24; padding:18px 24px; text-align:center; border-bottom:1px solid #353B43; position:sticky; top:0; z-index:10; }
         .pagebar h1 { font-size:17px; font-weight:700; letter-spacing:-0.3px; }
         .pagebar p { font-size:13px; color:#98A1AC; margin-top:4px; }
-        .nav { display:flex; gap:8px; justify-content:center; margin-top:12px; flex-wrap:wrap; }
-        .nav a { font-size:13px; font-weight:600; color:#cfd5dc; text-decoration:none; background:#2A2F36; border:1px solid #3C434C; padding:7px 16px; border-radius:999px; transition:all .15s; }
-        .nav a:hover { background:#FF6B00; border-color:#FF6B00; color:#fff; }
-        .block { max-width:920px; margin:0 auto; padding:36px 20px 12px; }
-        .label { display:flex; align-items:baseline; gap:12px; margin-bottom:16px; flex-wrap:wrap; }
-        .label .tag { font-size:18px; font-weight:800; color:#fff; background:#FF6B00; padding:8px 14px; border-radius:11px; flex-shrink:0; }
-        .label .t-name { font-size:19px; font-weight:800; letter-spacing:-0.4px; }
-        .label .t-desc { font-size:14px; color:#98A1AC; }
-        .label .open { margin-left:auto; font-size:13px; font-weight:600; color:#FF8C3A; text-decoration:none; }
-        .label .open:hover { text-decoration:underline; }
+        .block { max-width:920px; margin:0 auto; padding:30px 20px; }
         .frame-shell { background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,.4); border:1px solid #3C434C; }
         iframe { width:100%; border:0; display:block; }
-        .endpad { height:60px; }
     </style>
 </head>
 <body>
     <div class="pagebar">
-        <h1>회원 페이지 시안 — D 디벨롭 3종</h1>
-        <p>아래로 스크롤하며 D1 / D2 / D3 비교하세요. (지적 사항 반영: 중복 제거·날짜·후기·PPT 표기·안내 점 정리)</p>
-        <div class="nav">
-            <a href="#d1">D1 로고형</a>
-            <a href="#d2">D2 가운데정렬</a>
-            <a href="#d3">D3 후기카드형</a>
-        </div>
+        <h1>회원 페이지 — D1 확정안</h1>
+        <p>후기 마감(상담일+2일 자동) · 후기 문구 · 만료 안내 강조 반영. 샘플 회원 화면입니다.</p>
     </div>
-
-    <div class="block" id="d1">
-        <div class="label">
-            <div class="tag">D1</div>
-            <div>
-                <div class="t-name">로고형 (좌 텍스트 · 우 로고)</div>
-                <div class="t-desc">오른쪽 빈 공간을 브랜드 로고로 채움. 균형 잡힌 헤더</div>
-            </div>
-            <a class="open" href="design-d1.html?name=김우재&date=2026-06-08&cash=18000&income=7700&saving=2400&target=60000" target="_blank">크게 보기 ↗</a>
-        </div>
+    <div class="block">
         <div class="frame-shell"><iframe data-src="design-d1.html?name=김우재&date=2026-06-08&cash=18000&income=7700&saving=2400&target=60000"></iframe></div>
     </div>
-
-    <div class="block" id="d2">
-        <div class="label">
-            <div class="tag">D2</div>
-            <div>
-                <div class="t-name">가운데 정렬</div>
-                <div class="t-desc">로고·제목·날짜 모두 중앙. 빈 공간 문제 자체를 없앰. 가장 단정</div>
-            </div>
-            <a class="open" href="design-d2.html?name=김우재&date=2026-06-08&cash=18000&income=7700&saving=2400&target=60000" target="_blank">크게 보기 ↗</a>
-        </div>
-        <div class="frame-shell"><iframe data-src="design-d2.html?name=김우재&date=2026-06-08&cash=18000&income=7700&saving=2400&target=60000"></iframe></div>
-    </div>
-
-    <div class="block" id="d3">
-        <div class="label">
-            <div class="tag">D3</div>
-            <div>
-                <div class="t-name">후기 카드형 (좌 텍스트 · 우 후기)</div>
-                <div class="t-desc">오른쪽 빈 공간에 후기 작성 카드 배치. 후기를 가장 눈에 띄게</div>
-            </div>
-            <a class="open" href="design-d3.html?name=김우재&date=2026-06-08&cash=18000&income=7700&saving=2400&target=60000" target="_blank">크게 보기 ↗</a>
-        </div>
-        <div class="frame-shell"><iframe data-src="design-d3.html?name=김우재&date=2026-06-08&cash=18000&income=7700&saving=2400&target=60000"></iframe></div>
-    </div>
-
-    <div class="endpad"></div>
-
     <script>
         function fitFrame(f) {
             try { var h = f.contentWindow.document.documentElement.scrollHeight; if (h > 0) f.style.height = h + 'px'; }
-            catch (e) { f.style.height = '1500px'; }
+            catch (e) { f.style.height = '1600px'; }
         }
         document.querySelectorAll('iframe').forEach(function(f) {
             f.addEventListener('load', function() { fitFrame(f); setTimeout(function(){ fitFrame(f); }, 400); });
