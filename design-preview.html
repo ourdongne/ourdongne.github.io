@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>회원 페이지 디자인 시안 3종 — 비교</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background: #2A2F36; color: #E8EBEF; -webkit-font-smoothing: antialiased;
+        }
+        .pagebar {
+            background: #1B1F24; padding: 18px 24px; text-align: center;
+            border-bottom: 1px solid #353B43; position: sticky; top: 0; z-index: 10;
+        }
+        .pagebar h1 { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; }
+        .pagebar p { font-size: 13px; color: #98A1AC; margin-top: 4px; }
+
+        .nav { display: flex; gap: 8px; justify-content: center; margin-top: 12px; flex-wrap: wrap; }
+        .nav a { font-size: 13px; font-weight: 600; color: #cfd5dc; text-decoration: none;
+            background: #2A2F36; border: 1px solid #3C434C; padding: 7px 16px; border-radius: 999px; transition: all .15s; }
+        .nav a:hover { background: #2E8BFF; border-color: #2E8BFF; color: #fff; }
+
+        .block { max-width: 900px; margin: 0 auto; padding: 36px 20px 12px; }
+        .label { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+        .label .tag { font-size: 22px; font-weight: 800; color: #fff;
+            background: #2E8BFF; width: 40px; height: 40px; border-radius: 11px;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .label .tag.b { background: #2E8B73; }
+        .label .tag.c { background: #2E5BFF; }
+        .label .t-name { font-size: 19px; font-weight: 800; letter-spacing: -0.4px; }
+        .label .t-desc { font-size: 14px; color: #98A1AC; }
+        .label .open { margin-left: auto; font-size: 13px; font-weight: 600; color: #2E8BFF; text-decoration: none; }
+        .label .open:hover { text-decoration: underline; }
+
+        .frame-shell {
+            background: #fff; border-radius: 14px; overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,.4); border: 1px solid #3C434C;
+        }
+        iframe { width: 100%; border: 0; display: block; }
+        .endpad { height: 60px; }
+    </style>
+</head>
+<body>
+    <div class="pagebar">
+        <h1>회원 페이지 디자인 시안 3종</h1>
+        <p>아래로 스크롤하며 A / B / C 비교하세요. 샘플 회원 정보가 채워진 실제 화면입니다.</p>
+        <div class="nav">
+            <a href="#a">A 라이트 미니멀</a>
+            <a href="#b">B 소프트 따뜻</a>
+            <a href="#c">C 모던 네이비</a>
+        </div>
+    </div>
+
+    <div class="block" id="a">
+        <div class="label">
+            <div class="tag">A</div>
+            <div>
+                <div class="t-name">라이트 미니멀</div>
+                <div class="t-desc">색·테두리 확 줄이고 여백·타이포 중심. 금융 리포트처럼 깔끔·고급</div>
+            </div>
+            <a class="open" href="design-a.html?name=김우재&date=2026-06-08&cash=18000&income=7700&saving=2400&target=60000" target="_blank">새 탭에서 크게 보기 ↗</a>
+        </div>
+        <div class="frame-shell"><iframe data-src="design-a.html?name=김우재&date=2026-06-08&cash=18000&income=7700&saving=2400&target=60000"></iframe></div>
+    </div>
+
+    <div class="block" id="b">
+        <div class="label">
+            <div class="tag b">B</div>
+            <div>
+                <div class="t-name">소프트 따뜻</div>
+                <div class="t-desc">크림톤 배경 + 둥근 카드. 우리동네 톤(쉽고 신뢰, 친근)</div>
+            </div>
+            <a class="open" href="design-b.html?name=김우재&date=2026-06-08&cash=18000&income=7700&saving=2400&target=60000" target="_blank">새 탭에서 크게 보기 ↗</a>
+        </div>
+        <div class="frame-shell"><iframe data-src="design-b.html?name=김우재&date=2026-06-08&cash=18000&income=7700&saving=2400&target=60000"></iframe></div>
+    </div>
+
+    <div class="block" id="c">
+        <div class="label">
+            <div class="tag c">C</div>
+            <div>
+                <div class="t-name">모던 네이비</div>
+                <div class="t-desc">세련된 진한 헤더 + 정돈된 그리드. 요즘 서비스 느낌</div>
+            </div>
+            <a class="open" href="design-c.html?name=김우재&date=2026-06-08&cash=18000&income=7700&saving=2400&target=60000" target="_blank">새 탭에서 크게 보기 ↗</a>
+        </div>
+        <div class="frame-shell"><iframe data-src="design-c.html?name=김우재&date=2026-06-08&cash=18000&income=7700&saving=2400&target=60000"></iframe></div>
+    </div>
+
+    <div class="endpad"></div>
+
+    <script>
+        // 같은 도메인이라 iframe 높이를 내용에 맞춰 자동 조절 (내부 스크롤 없이 전체 표시)
+        function fitFrame(f) {
+            try {
+                var d = f.contentwindow || f.contentWindow;
+                var h = f.contentWindow.document.documentElement.scrollHeight;
+                if (h > 0) f.style.height = h + 'px';
+            } catch (e) { f.style.height = '1400px'; }
+        }
+        document.querySelectorAll('iframe').forEach(function(f) {
+            f.addEventListener('load', function() { fitFrame(f); setTimeout(function(){ fitFrame(f); }, 400); });
+            f.src = f.getAttribute('data-src');
+        });
+        window.addEventListener('resize', function() {
+            document.querySelectorAll('iframe').forEach(fitFrame);
+        });
+    </script>
+</body>
+</html>
