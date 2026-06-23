@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <title>재무 계산기 - 내집마련 코칭</title>
+    <title>내집마련 계산기 - 우리동네재테크</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3"></script>
     <style>
@@ -85,7 +85,7 @@
 <div class="wrap">
     <div class="hdr">
         <div>
-            <h1 id="hT">우리동네재테크 재무 계산기</h1>
+            <h1 id="hT">우리동네재테크 내집마련 계산기</h1>
             <div class="sub" id="hS">내집마련 코칭 · 상담 자료</div>
         </div>
         <img class="hdr-logo" src="channel-logo.png" alt="우리동네재테크">
@@ -206,7 +206,7 @@
     var crosshairPlugin={id:'crosshair',afterDraw:function(chart){if(chart.tooltip&&chart.tooltip._active&&chart.tooltip._active.length){var x=chart.tooltip._active[0].element.x;var yA=chart.chartArea;var ctx=chart.ctx;ctx.save();ctx.beginPath();ctx.setLineDash([4,4]);ctx.strokeStyle='#94A3B8';ctx.lineWidth=1;ctx.moveTo(x,yA.top);ctx.lineTo(x,yA.bottom);ctx.stroke();ctx.restore();}}};
     Chart.register(crosshairPlugin);
 
-    var nm=gP('name','');if(nm)$('hT').textContent=nm+'님 재무 계산기';
+    var nm=gP('name','');if(nm)$('hT').textContent=nm+'님 내집마련 계산기';
     var D={c:gN('cash',18000),i:gN('income',7700),s:gN('saving',2400),t:gN('target',60000),ma:gN('my_apt',50000),ga:gN('goal_apt',130000)};
 
     function sV(id,v){$(id).value=v.toLocaleString();}
