@@ -26,36 +26,8 @@
         .chip .lbl { color:var(--ink-faint); font-weight:600; }
         .chip input { border:none; background:transparent; font:inherit; color:var(--ink); width:108px; padding:0; outline:none; }
         .hero-badge { flex-shrink:0; text-align:center; }
-        .hero-badge img { width:108px; height:108px; border-radius:50%; object-fit:cover; box-shadow:0 8px 24px rgba(21,17,12,.14); }
+        .hero-badge img { width:108px; height:108px; display:block; }
         .hero-badge .bn { font-family:"GmarketSans","Pretendard"; font-size:13px; font-weight:700; color:var(--ink-soft); margin-top:12px; }
-
-        .qa { display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;
-            background:var(--accent-soft); border-radius:16px; padding:20px 24px; margin:12px 0 52px; }
-        .qa-left { display:flex; align-items:center; gap:14px; }
-        .qa-ico { width:44px; height:44px; border-radius:12px; background:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-        .qa-ico svg { width:23px; height:23px; fill:none; stroke:var(--accent); stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
-        .qa-title { font-size:16.5px; font-weight:700; color:var(--ink); font-family:"GmarketSans","Pretendard"; }
-        .qa-title b { color:var(--accent-dark); }
-        .qa-sub { font-size:13.5px; color:var(--ink-soft); margin-top:2px; }
-        .qa-sub b { color:var(--ink); font-weight:700; text-decoration:underline; text-underline-offset:2px; }
-        .qa-btn { font-size:15px; font-weight:700; color:#fff; background:var(--accent); padding:13px 24px; border-radius:10px; text-decoration:none; white-space:nowrap; transition:all .2s; box-shadow:0 4px 12px rgba(255,107,0,.25); }
-        .qa-btn:hover { background:var(--accent-dark); transform:translateY(-2px); }
-        .qa-right { display:flex; flex-direction:column; align-items:flex-end; gap:7px; }
-        .qa-deadline { font-size:12.5px; color:var(--ink-faint); font-weight:600; }
-        .qa-deadline b { color:var(--accent-dark); }
-        .qa-btn-line { color:var(--accent-dark); background:#fff; border:1.5px solid var(--accent); box-shadow:none; }
-        .qa { flex-direction:column; align-items:stretch; }
-        .qa-btn-main { display:flex; align-items:center; justify-content:center; height:52px; width:100%; box-sizing:border-box; font-size:15.5px; padding:0 8px; border:1.5px solid var(--accent); box-shadow:none; white-space:nowrap; }
-        .qa-row { display:grid; grid-template-columns:minmax(0, 3fr) minmax(0, 2fr); gap:10px; width:100%; align-items:start; }
-        .qa-col { display:flex; flex-direction:column; gap:7px; }
-        @media (max-width: 420px) { .qa-ico { display:none; } .qa-row { grid-template-columns:minmax(0, 1.7fr) minmax(0, 1fr); gap:8px; } .qa-btn-main { font-size:14px; padding:0 4px; } .qa-btn-main .arw { display:none; } }
-        .qa-center { text-align:center; align-self:center; }
-        .qa-link { font-size:14px; font-weight:700; color:var(--accent-dark); text-decoration:underline; text-underline-offset:3px; margin-top:4px; }
-        .qa-ext { font-size:14px; color:var(--ink-soft); line-height:1.7; }
-        .qa .nw { white-space:nowrap; }
-        .qa u { text-decoration-thickness:2px; text-underline-offset:3px; }
-        .qa-ext b { color:var(--accent-dark); font-weight:700; }
-        .qa-btn-line:hover { color:#fff; }
 
         .sec-label { font-size:13px; font-weight:700; letter-spacing:1px; color:var(--ink-faint); margin-bottom:10px; }
         .list { margin-bottom:40px; }
@@ -86,9 +58,27 @@
             .hero { flex-direction:column-reverse; align-items:flex-start; gap:20px; padding:36px 0 28px; }
             .hero-badge img { width:72px; height:72px; } .hero-badge .bn { display:none; }
             .hero h1 { font-size:31px; }
-            .qa { flex-direction:column; align-items:flex-start; } .qa-right { width:100%; align-items:stretch; } .qa-btn { width:100%; text-align:center; } .qa-deadline { text-align:center; }
             .row { gap:14px; padding:18px 4px; } .row .ico { width:44px; height:44px; }
         }
+        /* 질의응답 칸: 위 = 무엇을 주는지, 아래 = 연장·마감·버튼 */
+        .qa2 { border:1px solid var(--line); border-radius:18px; overflow:hidden; background:#fff; margin-bottom:34px; }
+        .qa2 .nw { white-space:nowrap; }
+        .qa2 u { text-decoration-thickness:2px; text-underline-offset:3px; }
+        .qa2-top { background:var(--accent-soft); padding:20px 22px; }
+        .qa2-title { font-family:"GmarketSans","Pretendard"; font-size:18px; font-weight:700; }
+        .qa2-title b { color:var(--accent); }
+        .qa2-sub { font-size:13.5px; color:var(--ink-soft); margin-top:2px; }
+        .qa2-bot { padding:18px 22px 20px; }
+        .qa2-ext { display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap; font-size:15px; margin-bottom:12px; }
+        .qa2-ext b { color:var(--accent-dark); }
+        .qa2-pill { display:inline-flex; align-items:center; gap:5px; background:var(--accent-soft); color:var(--accent-dark); font-weight:800; font-size:13px; border-radius:999px; padding:4px 11px; }
+        .qa2-row { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:8px; }
+        .qa2-btn { display:flex; align-items:center; justify-content:center; height:50px; border-radius:12px; font-weight:700; font-size:15px; text-decoration:none; border:1.5px solid var(--accent); white-space:nowrap; transition:all .2s; }
+        .qa2-btn.main { background:var(--accent); color:#fff; }
+        .qa2-btn.main:hover { background:var(--accent-dark); }
+        .qa2-btn.line { background:#fff; color:var(--accent-dark); }
+        @media (max-width: 360px) { .qa2-btn { font-size:13.5px; } .qa2-top, .qa2-bot { padding-left:18px; padding-right:18px; } }
+        @media (max-width: 340px) { .qa2-btn { font-size:12.5px; letter-spacing:-0.3px; } }
     </style>
 </head>
 <body>
@@ -102,27 +92,23 @@
                 </div>
             </div>
             <div class="hero-badge">
-                <img src="channel-logo.png" alt="우리동네재테크">
+                <img src="channel-logo-ring.png" alt="우리동네재테크">
             </div>
             <input type="text" id="clientName" class="vh" placeholder="회원명" aria-hidden="true">
             <span id="headerSubtitle" class="vh"></span>
         </div>
 
-        <div class="qa">
-            <div class="qa-left">
-                <div class="qa-ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 17 0z"/></svg></div>
-                <div>
-                    <div class="qa-title">질의응답 <b id="qaMonths">2개월</b> <span class="nw">무료 지원</span></div>
-                    <div class="qa-sub" id="qaSub">(카페 가입 후 <span class="nw">10분 내외 자동 등업)</span></div>
-                </div>
+        <div class="qa2">
+            <div class="qa2-top">
+                <div class="qa2-title">질의응답 <b id="qaMonths">2개월</b> <span class="nw">무료 지원</span></div>
+                <div class="qa2-sub" id="qaSub">(카페 가입 시 <span class="nw">10분 내외로 자동 등업됩니다)</span></div>
             </div>
-            <div class="qa-ext" id="qaExt">후기 남기면 <b>2개월 → <u>6개월</u></b> 자동 연장</div>
-            <div class="qa-row">
-                <div class="qa-col">
-                    <a class="qa-btn qa-btn-main" id="reviewBtn" href="https://cafe.naver.com/f-e/cafes/31550574/menus/3" target="_blank">후기 쓰고 혜택받기<span class="arw">&nbsp;→</span></a>
-                    <div class="qa-deadline qa-center">후기 마감 <b><u id="reviewDeadline">—</u></b></div>
+            <div class="qa2-bot">
+                <div class="qa2-ext"><span class="nw">후기 작성 시 <b><u>6개월</u></b>로 연장</span><span class="qa2-pill nw">⏰ 후기 마감 <span id="reviewDeadline">—</span></span></div>
+                <div class="qa2-row" id="qaRow">
+                    <a class="qa2-btn main" id="reviewBtn" href="https://cafe.naver.com/f-e/cafes/31550574/menus/3" target="_blank">후기 쓰고 혜택받기</a>
+                    <a class="qa2-btn line" id="askBtn" href="https://cafe.naver.com/f-e/cafes/31550574/menus/6" target="_blank">질문하기</a>
                 </div>
-                <a class="qa-btn qa-btn-main qa-btn-line" id="askBtn" href="https://cafe.naver.com/f-e/cafes/31550574/menus/6" target="_blank">질문하기<span class="arw">&nbsp;→</span></a>
             </div>
         </div>
 
@@ -180,15 +166,14 @@
             // 후기 작성 마감 = 상담 다음 날 (자동 계산). 2026-10-12 전 상담은 옛 규칙(질의응답 3개월, 구글 설문 후기, 상담일+2일) 그대로
             var baseStr = document.getElementById('consultDate').value;
             var oldRule = baseStr && baseStr < '2026-10-12';
-            if (oldRule) {
+            if (oldRule) {  // 10/12 전 상담: 질의응답 3개월, 후기는 구글 설문, 질문은 카톡
                 document.getElementById('qaMonths').textContent = '3개월';
+                document.getElementById('qaSub').style.display = 'none';
                 var rb = document.getElementById('reviewBtn');
                 rb.href = 'https://docs.google.com/forms/d/17iXvUhFQbogWpumqN3cmDZCTPz0Af1pKU9sv3j5rfjM/viewform?edit_requested=true';
-                rb.textContent = '후기 작성하기 →';
-                document.getElementById('qaSub').textContent = '';
-                document.getElementById('qaExt').innerHTML = '후기 작성 시 <b><u>6개월</u>로 연장</b>';
+                rb.textContent = '후기 작성하기';
                 document.getElementById('askBtn').style.display = 'none';
-                document.querySelector('.qa-row').style.gridTemplateColumns = '1fr';
+                document.getElementById('qaRow').style.gridTemplateColumns = '1fr';
             }
             var base = new Date(baseStr + 'T00:00:00');
             if (!isNaN(base.getTime())) {
