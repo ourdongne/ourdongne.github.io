@@ -179,6 +179,12 @@
                 document.getElementById('qaExt').innerHTML = '후기 작성 시 <b><u>6개월</u></b>로 연장 <span class="nw">(카페에서)</span>';
                 document.getElementById('askBtn').href = 'https://pf.kakao.com/_mcxnjX/chat';
             }
+            // 휴대폰이면 카페 버튼을 휴대폰 주소로 (컴퓨터 주소는 휴대폰에서 컴퓨터 화면으로 열림)
+            if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
+                document.querySelectorAll('a[href^="https://cafe.naver.com/f-e/"]').forEach(function(a) {
+                    a.href = a.href.replace('https://cafe.naver.com/f-e/', 'https://m.cafe.naver.com/ca-fe/web/');
+                });
+            }
             var base = new Date(baseStr + 'T00:00:00');
             if (!isNaN(base.getTime())) {
                 base.setDate(base.getDate() + (oldRule ? 2 : 1));
