@@ -180,7 +180,7 @@
                 document.getElementById('askBtn').href = 'https://pf.kakao.com/_mcxnjX/chat';
             }
             // 휴대폰이면 카페 버튼을 휴대폰 주소로 (컴퓨터 주소는 휴대폰에서 컴퓨터 화면으로 열림)
-            if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
+            if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
                 document.querySelectorAll('a[href^="https://cafe.naver.com/f-e/"]').forEach(function(a) {
                     a.href = a.href.replace('https://cafe.naver.com/f-e/', 'https://m.cafe.naver.com/ca-fe/web/');
                 });
